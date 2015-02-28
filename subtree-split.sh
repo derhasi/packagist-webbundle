@@ -6,6 +6,7 @@
 # - DOWNSTREAM_BRANCH
 # - SUBTREE_PREFIX
 # - SUBTREE_BRANCH
+# - GH_TOKEN (optional)
 
 # Quit immediately if any command fails.
 set -e
@@ -15,6 +16,11 @@ set -e
 # Therefore we replace "git:" with "https:".
 UPSTREAM_REPOSITORY=$(git config --get remote.origin.url)
 UPSTREAM_REPOSITORY=${UPSTREAM_REPOSITORY/#"git:"/"https:"}
+if [[ "$GH_TOKEN" != "" ]]
+then
+  UPSTREAM_REPOSITORY=${UPSTREAM_REPOSITORY/#"https://"/"https://$GH_TOKEN@"}
+fi
+
 git remote set-url origin $UPSTREAM_REPOSITORY
 
 # Retrieve data from remote repository to build subtree from.
