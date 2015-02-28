@@ -4,18 +4,12 @@ env:
     - UPSTREAM_REPOSITORY=https://github.com/derhasi/packagist.git
     - UPSTREAM_BRANCH=packagist-webbundle
     - SUBTREE_PREFIX=src/Packagist/WebBundle
-    - LOCAL_BRANCH=master
+    - SUBTREE_BRANCH=master
 branches:
   only:
     - script
 before_script:
   - git config --global user.email "travisci@derhasi.de"
   - git config --global user.name "Travis CI"
-  # Build changes in the repo
-  - git remote add upstream $UPSTREAM_REPOSITORY
-  - git fetch upstream
 script:
- - git checkout -b "upstream" "upstream/$UPSTREAM_BRANCH"
- - git subtree split --prefix="$SUBTREE_PREFIX" --branch="split"
- - git merge split
- - git push
+  - bash subtree-split.sh
