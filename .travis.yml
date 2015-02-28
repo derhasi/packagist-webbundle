@@ -16,4 +16,5 @@ script:
  - git checkout -b "upstream" "upstream/$UPSTREAM_BRANCH"
  - git subtree split --prefix="$SUBTREE_PREFIX" --branch="split"
  - git merge splitq
+ - git merge split
  - git push
