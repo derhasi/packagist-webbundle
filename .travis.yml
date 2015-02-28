@@ -1,8 +1,8 @@
 language: bash
 env:
   global:
-    - UPSTREAM_REPOSITORY=https://github.com/derhasi/packagist.git
-    - UPSTREAM_BRANCH=packagist-webbundle
+    - DOWNSTREAM_REPOSITORY=https://github.com/derhasi/packagist.git
+    - DOWNSTREAM_BRANCH=packagist-webbundle
     - SUBTREE_PREFIX=src/Packagist/WebBundle
     - SUBTREE_BRANCH=master
 branches:
