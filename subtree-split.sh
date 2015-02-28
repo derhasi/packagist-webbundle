@@ -10,6 +10,13 @@
 # Quit immediately if any command fails.
 set -e
 
+# For now we deal with "origin" as upstream repo.
+# Make sure that is not set as git:-url as github does not allow to push there.
+# Therefore we replace "git:" with "https:".
+UPSTREAM_REPOSITORY=$(git config --get remote.origin.url)
+UPSTREAM_REPOSITORY=${UPSTREAM_REPOSITORY/#"git:"/"https:"}
+git remote set-url origin $UPSTREAM_REPOSITORY
+
 # Retrieve data from remote repository to build subtree from.
 git remote add downstream $DOWNSTREAM_REPOSITORY
 git fetch downstream
