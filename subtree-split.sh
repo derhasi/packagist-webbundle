@@ -32,5 +32,5 @@ git checkout -b "downstream" "downstream/$DOWNSTREAM_BRANCH"
 # We split the subtree of the downstream in a new branch, so
 git subtree split --prefix="$SUBTREE_PREFIX" --branch="$SUBTREE_BRANCH"
 
-#
-git push origin "$SUBTREE_BRANCH:$SUBTREE_BRANCH" > /dev/null 2>&1
+# As the output of git push might reveal our GH_TOKEN, we will not show it.
+git push origin "$SUBTREE_BRANCH:$SUBTREE_BRANCH" &> /dev/null
