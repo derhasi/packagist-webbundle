@@ -5,6 +5,7 @@ env:
     - DOWNSTREAM_BRANCH=packagist-webbundle
     - SUBTREE_PREFIX=src/Packagist/WebBundle
     - SUBTREE_BRANCH=master
+    - secure: KC1zzT30TJ9rc7XW6sZqidOJIAAJqec5ldqGvO5/OP5okBtsC5p8cR2f6EMSHhUAiqhmo1xMvD5OyQ8kucmIqAol7V/TQtzVadVtPKS8OOJRFKHpgJPzJzA37H/y18pEcFPi8yMvw2JEvUTfB91raHETdorFj03bugt+4cZ9gFk=
 branches:
   only:
     - script
