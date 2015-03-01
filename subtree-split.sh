@@ -34,3 +34,4 @@ git subtree split --prefix="$SUBTREE_PREFIX" --branch="$SUBTREE_BRANCH"
 
 # As the output of git push might reveal our GH_TOKEN, we will not show it.
 git push origin "$SUBTREE_BRANCH:$SUBTREE_BRANCH" &> /dev/null
+echo "Branch pushed to origin/$SUBTREE_BRANCH"
