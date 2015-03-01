@@ -33,4 +33,4 @@ git checkout -b "downstream" "downstream/$DOWNSTREAM_BRANCH"
 git subtree split --prefix="$SUBTREE_PREFIX" --branch="$SUBTREE_BRANCH"
 
 #
-git push origin "$SUBTREE_BRANCH:$SUBTREE_BRANCH"
+git push origin "$SUBTREE_BRANCH:$SUBTREE_BRANCH" > /dev/null 2>&1
